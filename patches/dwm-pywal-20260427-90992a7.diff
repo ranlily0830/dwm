@@ -1,0 +1,35 @@
+From 44b61a0c56c6a10e83f1d781c98d2c9912785f3a Mon Sep 17 00:00:00 2001
+From: ranlily0830 <notkeyno6@gmail.com>
+Date: Mon, 27 Apr 2026 18:45:08 +0800
+Subject: [PATCH] load pywal color scheme with xrdb patch
+
+---
+ dwm.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/dwm.c b/dwm.c
+index 7e444ad..dcc14a7 100644
+--- a/dwm.c
++++ b/dwm.c
+@@ -1064,12 +1064,12 @@ loadxrdb()
+       xrdb = XrmGetStringDatabase(resm);
+ 
+       if (xrdb != NULL) {
+-        XRDB_LOAD_COLOR("dwm.normbordercolor", normbordercolor);
+-        XRDB_LOAD_COLOR("dwm.normbgcolor", normbgcolor);
+-        XRDB_LOAD_COLOR("dwm.normfgcolor", normfgcolor);
+-        XRDB_LOAD_COLOR("dwm.selbordercolor", selbordercolor);
+-        XRDB_LOAD_COLOR("dwm.selbgcolor", selbgcolor);
+-        XRDB_LOAD_COLOR("dwm.selfgcolor", selfgcolor);
++        XRDB_LOAD_COLOR("dwm.color0", normbordercolor);
++        XRDB_LOAD_COLOR("dwm.color0", normbgcolor);
++        XRDB_LOAD_COLOR("dwm.color6", normfgcolor);
++        XRDB_LOAD_COLOR("dwm.color8", selbordercolor);
++        XRDB_LOAD_COLOR("dwm.color14", selbgcolor);
++        XRDB_LOAD_COLOR("dwm.color0", selfgcolor);
+       }
+     }
+   }
+-- 
+2.54.0
+
