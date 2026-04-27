@@ -33,6 +33,10 @@ static const Rule rules[] = {
 	{ "Gimp",     NULL,       NULL,       0,            0,            1,           -1,        0,0,1300,800,        5 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,            0,           -1,        0,0,1300,800,        5 },
 	{ "floating", NULL,       NULL,       0,            1,            1,           -1,        0,0,1300,800,        5 },
+	{ "Nsxiv",    NULL,       NULL,       0,            1,            1,           -1,        0,0,1300,800,        5 },
+	{ "Lutris",   NULL,       NULL,       0,            1,            1,           -1,        0,0,1300,800,        5 },
+	{ "obs",      NULL,       NULL,       0,            1,            1,           -1,        0,0,1300,800,        5 },
+	{ "v2rayN",   NULL,       NULL,       0,            1,            1,           -1,        0,0,1300,800,        5 },
 };
 
 /* layout(s) */
