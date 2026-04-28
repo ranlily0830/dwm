@@ -14,3 +14,5 @@ my own build of DWM
   ```
   sudo pacman -S base-devel xorg-server xorg-xinit libx11 libxinerama libxft webkit2gtk
   ```
+# Screenshots
+![dwm](./screenshot.png)
