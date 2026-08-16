@@ -70,11 +70,11 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-l", "10" };
 static const char *termcmd[]  = { "st", NULL };
-static const char *upvol[] = { "/usr/bin/wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "5%+", "--limit", "1", NULL };
-static const char *downvol[] = { "/usr/bin/wpctl", "set-volume", "@DEFAULT_AUDIO_SINK@", "5%-", "--limit", "1", NULL };
-static const char *mutevol[] = { "/usr/bin/wpctl", "set-mute", "@DEFAULT_AUDIO_SINK@", "toggle", NULL };
-static const char *light_up[]   = { "/usr/bin/light",   "-A", "5", NULL };
-static const char *light_down[] = { "/usr/bin/light",   "-U", "5", NULL };
+static const char *upvol[] = { "/bin/sh", "-c", "/usr/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ --limit 1 && /usr/bin/pkill -RTMIN+3 dwmblocks", NULL };
+static const char *downvol[] = { "/bin/sh", "-c", "/usr/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- --limit 1 && /usr/bin/pkill -RTMIN+3 dwmblocks", NULL };
+static const char *mutevol[] = { "/bin/sh", "-c", "/usr/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && /usr/bin/pkill -RTMIN+3 dwmblocks", NULL };
+static const char *light_up[]   = { "/usr/bin/light", "-A", "5", NULL };
+static const char *light_down[] = { "/usr/bin/light", "-U", "5", NULL };
 static const char *ranger[] = {"st", "-c", "floating", "-e", "ranger" };
 static const char *slockcmd[] = {"slock", NULL };
 static const char *fscmd[] = { "flameshot", "gui", NULL };
@@ -123,7 +123,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_v,      spawn,          SHCMD("st -c floating -e pulsemixer") },
 	{ 0,                            XF86XK_AudioLowerVolume,   spawn, {.v = downvol } },
 	{ 0,                            XF86XK_AudioMute,          spawn, {.v = mutevol } },
-	{ 0,                            XF86XK_AudioRaiseVolume,   spawn, {.v = upvol   } },
+	{ 0,                            XF86XK_AudioRaiseVolume,   spawn, {.v = upvol} },
 	{ 0,	                        XF86XK_MonBrightnessUp,	   spawn, {.v = light_up} },
 	{ 0,	                        XF86XK_MonBrightnessDown,  spawn, {.v = light_down} },
 	TAGKEYS(                        XK_1,                      0)
