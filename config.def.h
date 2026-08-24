@@ -120,7 +120,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Print,  spawn,          {.v = fscmd } },
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("dmenu-power") },
 	{ MODKEY|ShiftMask,             XK_o,      spawn,          SHCMD("al") },
-	{ MODKEY|ShiftMask,             XK_v,      spawn,          SHCMD("st -c floating -e pulsemixer") },
+	{ MODKEY|ShiftMask,             XK_v,      spawn,          SHCMD("st -c floating -e wiremix") },
 	{ 0,                            XF86XK_AudioLowerVolume,   spawn, {.v = downvol } },
 	{ 0,                            XF86XK_AudioMute,          spawn, {.v = mutevol } },
 	{ 0,                            XF86XK_AudioRaiseVolume,   spawn, {.v = upvol} },
