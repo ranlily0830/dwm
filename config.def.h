@@ -70,12 +70,13 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-l", "10" };
 static const char *termcmd[]  = { "st", NULL };
-static const char *upvol[] = { "/bin/sh", "-c", "/usr/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ --limit 1 && /usr/bin/pkill -RTMIN+3 dwmblocks", NULL };
-static const char *downvol[] = { "/bin/sh", "-c", "/usr/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- --limit 1 && /usr/bin/pkill -RTMIN+3 dwmblocks", NULL };
-static const char *mutevol[] = { "/bin/sh", "-c", "/usr/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && /usr/bin/pkill -RTMIN+3 dwmblocks", NULL };
+static const char *traycmd[]  = { "st", "-c", "floating", "-e", "tray-tui" };
+static const char *upvol[] = { "/bin/sh", "-c", "/usr/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ --limit 1", NULL };
+static const char *downvol[] = { "/bin/sh", "-c", "/usr/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- --limit 1", NULL };
+static const char *mutevol[] = { "/bin/sh", "-c", "/usr/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle", NULL };
 static const char *light_up[]   = { "/usr/bin/brillo", "-u", "150000", "-A", "5", NULL };
 static const char *light_down[] = { "/usr/bin/brillo", "-u", "150000", "-U", "5", NULL };
-static const char *ranger[] = {"st", "-c", "floating", "-e", "ranger" };
+static const char *ranger[] = {"st", "-c", "floating", "-e", "env", "TERM=kitty", "ranger" };
 static const char *slockcmd[] = {"slock", NULL };
 static const char *fscmd[] = { "flameshot", "gui", NULL };
 
@@ -118,6 +119,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_e,      spawn,          {.v = ranger } },
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = slockcmd } },
 	{ MODKEY|ShiftMask,             XK_Print,  spawn,          {.v = fscmd } },
+	{ MODKEY|ShiftMask,             XK_t,      spawn,          {.v = traycmd } },
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          SHCMD("dmenu-power") },
 	{ MODKEY|ShiftMask,             XK_o,      spawn,          SHCMD("al") },
 	{ MODKEY|ShiftMask,             XK_v,      spawn,          SHCMD("st -c floating -e wiremix") },
