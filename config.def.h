@@ -74,6 +74,7 @@ static const char *traycmd[]  = { "st", "-c", "floating", "-e", "tray-tui" };
 static const char *upvol[] = { "/bin/sh", "-c", "/usr/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+ --limit 1", NULL };
 static const char *downvol[] = { "/bin/sh", "-c", "/usr/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- --limit 1", NULL };
 static const char *mutevol[] = { "/bin/sh", "-c", "/usr/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle", NULL };
+static const char *mutemic[] = { "/bin/sh", "-c", "/usr/bin/wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle", NULL };
 static const char *light_up[]   = { "/usr/bin/brillo", "-u", "150000", "-A", "5", NULL };
 static const char *light_down[] = { "/usr/bin/brillo", "-u", "150000", "-U", "5", NULL };
 static const char *ranger[] = {"st", "-c", "floating", "-e", "env", "TERM=kitty", "ranger" };
@@ -141,6 +142,7 @@ static const Key keys[] = {
 	{ MODKEY|ControlMask|ShiftMask, XK_Right,  moveresizeedge, {.v = "R"} },
 	{ 0,                            XF86XK_AudioLowerVolume,   spawn, {.v = downvol } },
 	{ 0,                            XF86XK_AudioMute,          spawn, {.v = mutevol } },
+	{ 0,                            XF86XK_AudioMicMute,       spawn, {.v = mutemic } },
 	{ 0,                            XF86XK_AudioRaiseVolume,   spawn, {.v = upvol} },
 	{ 0,	                        XF86XK_MonBrightnessUp,	   spawn, {.v = light_up} },
 	{ 0,	                        XF86XK_MonBrightnessDown,  spawn, {.v = light_down} },
